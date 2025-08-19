@@ -1,0 +1,128 @@
+2025-08-19T18:14:33.452-05:00  INFO 42758 --- [vector-store-loader] [main] c.e.v.VectorStoreLoaderApplication       : Starting VectorStoreLoaderApplication using Java 24.0.1 with PID 42758 (/Users/erik/dev/projects/ai/manning-book/vector-store-loader/build/classes/java/main started by erik in /Users/erik/dev/projects/ai/manning-book/vector-store-loader)
+2025-08-19T18:14:33.453-05:00  INFO 42758 --- [vector-store-loader] [main] c.e.v.VectorStoreLoaderApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-08-19T18:14:33.790-05:00  INFO 42758 --- [vector-store-loader] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2025-08-19T18:14:33.794-05:00  INFO 42758 --- [vector-store-loader] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2025-08-19T18:14:33.935-05:00  INFO 42758 --- [vector-store-loader] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-19T18:14:33.943-05:00  INFO 42758 --- [vector-store-loader] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-19T18:14:33.943-05:00  INFO 42758 --- [vector-store-loader] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19T18:14:33.968-05:00  INFO 42758 --- [vector-store-loader] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-19T18:14:33.969-05:00  INFO 42758 --- [vector-store-loader] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 499 ms
+2025-08-19T18:14:34.465-05:00  WARN 42758 --- [vector-store-loader] [main] io.qdrant.client.QdrantGrpcClient        : Failed to obtain server version. Unable to check client-server compatibility. Set checkCompatibility=false to skip version check.
+2025-08-19T18:14:34.630-05:00 ERROR 42758 --- [vector-store-loader] [main] io.qdrant.client.QdrantClient            : List collection operation failed
+
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:533) ~[grpc-api-1.65.1.jar:1.65.1]
+	at io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:538) ~[grpc-stub-1.65.1.jar:1.65.1]
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:564) ~[grpc-core-1.65.1.jar:1.65.1]
+	at io.grpc.internal.ClientCallImpl.access$100(ClientCallImpl.java:72) ~[grpc-core-1.65.1.jar:1.65.1]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:729) ~[grpc-core-1.65.1.jar:1.65.1]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:710) ~[grpc-core-1.65.1.jar:1.65.1]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.65.1.jar:1.65.1]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[grpc-core-1.65.1.jar:1.65.1]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+Caused by: io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:6334
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:628) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2025-08-19T18:14:34.638-05:00  WARN 42758 --- [vector-store-loader] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'vectorStore' defined in class path resource [org/springframework/ai/vectorstore/qdrant/autoconfigure/QdrantVectorStoreAutoConfiguration.class]: java.util.concurrent.ExecutionException: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+2025-08-19T18:14:34.641-05:00  INFO 42758 --- [vector-store-loader] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-19T18:14:34.647-05:00  INFO 42758 --- [vector-store-loader] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-19T18:14:34.653-05:00 ERROR 42758 --- [vector-store-loader] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'vectorStore' defined in class path resource [org/springframework/ai/vectorstore/qdrant/autoconfigure/QdrantVectorStoreAutoConfiguration.class]: java.util.concurrent.ExecutionException: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at com.example.vectorstoreloader.VectorStoreLoaderApplication.main(VectorStoreLoaderApplication.java:10) ~[main/:na]
+Caused by: java.lang.RuntimeException: java.util.concurrent.ExecutionException: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at org.springframework.ai.vectorstore.qdrant.QdrantVectorStore.isCollectionExists(QdrantVectorStore.java:330) ~[spring-ai-qdrant-store-1.0.1.jar:1.0.1]
+	at org.springframework.ai.vectorstore.qdrant.QdrantVectorStore.afterPropertiesSet(QdrantVectorStore.java:316) ~[spring-ai-qdrant-store-1.0.1.jar:1.0.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 18 common frames omitted
+Caused by: java.util.concurrent.ExecutionException: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.google.common.util.concurrent.AbstractFuture.getDoneValue(AbstractFuture.java:592) ~[guava-32.1.3-jre.jar:na]
+	at com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:551) ~[guava-32.1.3-jre.jar:na]
+	at com.google.common.util.concurrent.FluentFuture$TrustedFuture.get(FluentFuture.java:91) ~[guava-32.1.3-jre.jar:na]
+	at org.springframework.ai.vectorstore.qdrant.QdrantVectorStore.isCollectionExists(QdrantVectorStore.java:327) ~[spring-ai-qdrant-store-1.0.1.jar:1.0.1]
+	... 21 common frames omitted
+Caused by: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:533) ~[grpc-api-1.65.1.jar:1.65.1]
+	at io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:538) ~[grpc-stub-1.65.1.jar:1.65.1]
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:564) ~[grpc-core-1.65.1.jar:1.65.1]
+	at io.grpc.internal.ClientCallImpl.access$100(ClientCallImpl.java:72) ~[grpc-core-1.65.1.jar:1.65.1]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:729) ~[grpc-core-1.65.1.jar:1.65.1]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:710) ~[grpc-core-1.65.1.jar:1.65.1]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.65.1.jar:1.65.1]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[grpc-core-1.65.1.jar:1.65.1]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+Caused by: io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:6334
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:628) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[grpc-netty-shaded-1.65.1.jar:1.65.1]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2025-08-19T18:15:19.191-05:00  INFO 42922 --- [vector-store-loader] [main] c.e.v.VectorStoreLoaderApplication       : Starting VectorStoreLoaderApplication using Java 24.0.1 with PID 42922 (/Users/erik/dev/projects/ai/manning-book/vector-store-loader/build/classes/java/main started by erik in /Users/erik/dev/projects/ai/manning-book/vector-store-loader)
+2025-08-19T18:15:19.192-05:00  INFO 42922 --- [vector-store-loader] [main] c.e.v.VectorStoreLoaderApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-08-19T18:15:19.522-05:00  INFO 42922 --- [vector-store-loader] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2025-08-19T18:15:19.526-05:00  INFO 42922 --- [vector-store-loader] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2025-08-19T18:15:19.657-05:00  INFO 42922 --- [vector-store-loader] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-19T18:15:19.663-05:00  INFO 42922 --- [vector-store-loader] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-19T18:15:19.663-05:00  INFO 42922 --- [vector-store-loader] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-19T18:15:19.690-05:00  INFO 42922 --- [vector-store-loader] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-19T18:15:19.690-05:00  INFO 42922 --- [vector-store-loader] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 480 ms
+2025-08-19T18:15:20.217-05:00  WARN 42922 --- [vector-store-loader] [main] io.qdrant.client.QdrantGrpcClient        : Qdrant client version 1.13.0 is incompatible with server version 1.15.3. Major versions should match and minor version difference must not exceed 1. Set checkCompatibility=false to skip version check.
+2025-08-19T18:15:20.531-05:00  INFO 42922 --- [vector-store-loader] [main] o.s.c.f.web.mvc.FunctionHandlerMapping   : FunctionCatalog: org.springframework.cloud.function.context.catalog.BeanFactoryAwareFunctionRegistry@4ad9a8b4
+2025-08-19T18:15:20.554-05:00  INFO 42922 --- [vector-store-loader] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-08-19T18:15:20.554-05:00  INFO 42922 --- [vector-store-loader] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'vector-store-loader.errorChannel' has 1 subscriber(s).
+2025-08-19T18:15:20.554-05:00  INFO 42922 --- [vector-store-loader] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2025-08-19T18:15:20.558-05:00  INFO 42922 --- [vector-store-loader] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 65242 (http) with context path '/'
+2025-08-19T18:15:20.563-05:00  INFO 42922 --- [vector-store-loader] [main] c.e.v.VectorStoreLoaderApplication       : Started VectorStoreLoaderApplication in 1.548 seconds (process running for 1.694)
+2025-08-19T18:15:38.926-05:00  INFO 42922 --- [vector-store-loader] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-19T18:15:38.931-05:00  INFO 42922 --- [vector-store-loader] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-19T18:15:38.935-05:00  INFO 42922 --- [vector-store-loader] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-08-19T18:15:38.935-05:00  INFO 42922 --- [vector-store-loader] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'vector-store-loader.errorChannel' has 0 subscriber(s).
+2025-08-19T18:15:38.935-05:00  INFO 42922 --- [vector-store-loader] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
