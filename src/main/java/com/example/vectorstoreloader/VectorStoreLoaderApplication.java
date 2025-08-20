@@ -14,8 +14,10 @@ import org.springframework.ai.reader.tika.TikaDocumentReader;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.function.context.FunctionCatalog;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -30,6 +32,14 @@ public class VectorStoreLoaderApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VectorStoreLoaderApplication.class, args);
+	}
+
+	@Bean
+	ApplicationRunner go(FunctionCatalog catalog) {
+		Runnable composedFunction = catalog.lookup(null);
+		return args -> {
+			composedFunction.run();
+		};
 	}
 
 	@Bean
