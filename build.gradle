@@ -34,6 +34,10 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-function-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// may not need the following because we added tika-doc-reader
+	implementation 'org.springframework.ai:spring-ai-pdf-document-reader'
+	implementation 'org.springframework.ai:spring-ai-tika-document-reader'
+
 }
 
 dependencyManagement {
